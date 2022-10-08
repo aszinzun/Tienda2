@@ -1,0 +1,21 @@
+{%  extends 'base.html'  %}
+{% block titulo %}
+ sub menu de productos modificar
+{% endblock %}
+
+{% block main %}
+
+   <h1> Formulario para modificar un producto </h1>
+   <form action="/modificarProducto" method="post">
+       numero de producto
+      <input type="text" name="claveP" value="{{producto.id_producto}}" readonly class="form-control"><br>
+       Nombre de prducto
+      <input type="text" name="nombreP" value="{{producto.nombre}}" class="form-control"><br>
+      descripcion
+      <input type="text" name="descP" value="{{producto.descripcion}}" class="form-control"><br>
+       precio
+      <input type="text" name="precioP" value="{{producto.precio}}"class="form-control" ><br>
+      <input type="submit" value="Modificar producto"class="btn btn-primary mb-3" class="btn"  class="btn btn-default">
+
+   </form>
+{% endblock %}

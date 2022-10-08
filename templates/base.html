@@ -1,0 +1,60 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+TIENDA EN LINEA
+{% endblock %}
+{% block styles %}
+    {{super()}}
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+{% endblock %}
+{% block scripts %}
+    <script>
+        function eliminarCliente(id) {
+            res = confirm("esta seguro de borrar el cliente")
+            if (res) {
+                location.assign("/eliminarCliente/" + id);
+            }
+        }
+        function eliminarProducto(id) {
+            res = confirm("esta seguro de borrar el poducto")
+            if (res) {
+                location.assign("/eliminarProd/" + id);
+            }
+        }
+        function eliminarUsuario(id) {
+            res = confirm("seguro")
+            if (res) {
+                location.assign("/eliminarUsuario/" + id);
+            }
+        }
+        function eliminarPedido(id) {
+            res = confirm("seguro")
+            if (res) {
+                location.assign("/eliminarPedido/" + id);
+            }
+        }
+        </script>
+
+       {{super()}}
+ {% endblock %}
+{% block navbar %}
+
+    <header>
+        <h1 class="tituloHeader">  TIENDA VIRTUAL MSC</h1>
+    </header>
+
+    {% include 'menu_ok.html' %}
+{% endblock %}
+{% block content %}
+<div class="container">
+   <!-- <header>
+        usted esta autenticado como: {{current_user.nombreCompleto}}  <a href="/cerrarSesion"> Cerrar sesión</a>
+    
+    </header> -->
+    {% block main %}
+
+    {% endblock %}
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block titulo %}
+menu clientes de My Bussiness
+{%endblock%}
+{% block main %}
+<h1>
+    Clientes registrados en mi tiendita
+</h1>
+<!--<table class="table" >-->
+<table class="table table-striped">
+    <th> Id</th>
+    <th>Nombre </th>
+    <th> saldo</th>
+    {% for cliente in datos %}
+    <tr>
+        <td>{{cliente[0]}}</td>
+        <td>{{cliente[1]}}</td>
+        <td>{{cliente[2]}}</td>
+        <!-- <td> <a href='#' onclick="eliminarCliente({{cliente[0]}})">eliminar </a></td>
+        <td><a href="/modificarcliente/{{cliente[0]}}"> editar</a></td> -->
+       
+    </tr>
+    {% endfor %}
+
+</table>
+{% if current_user.is_authenticated and current_user.is_admin() %}
+<a href="/agregarcliente">Registrar un cliente nuevo</a><br>
+ {% endif %}
+<a href="/menu">Regresar</a>
+{% endblock %}

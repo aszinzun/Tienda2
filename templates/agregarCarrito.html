@@ -1,0 +1,23 @@
+{%  extends 'base.html'  %}
+{% block title %}
+ agregar al carrito
+{% endblock %}
+
+{% block main %}
+
+   <h1> Formulario para agregar un producto al carrito</h1>
+   <form action="/agregarProdCarrito" method="post">
+       numero de producto
+      <input class="form-control"  type="text" name="claveP" value="{{producto.id_producto}}" readonly><br>
+       Nombre de producto
+      <input class="form-control" type="text" name="nombreP" value="{{producto.nombre}}" readonly><br>
+      descripcion
+      <input class="form-control" type="text" name="descP" value="{{producto.descripcion}}" readonly><br>
+       precio
+      <input class="form-control" type="text" name="precioP" value="{{producto.precio}}"readonly><br>
+       cantidad
+      <input class="form-control" type="number" name="cantidad" value="1"><br>
+      <input type="submit" value="agregar producto" class="btn btn-primary mb-3" class="btn"  class="btn btn-default">
+
+   </form>
+{% endblock %}

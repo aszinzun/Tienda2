@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+Consultar Pedidos
+{% endblock %}
+
+{% block main %}
+<h1> detalle  del  pedido</h1>
+<!-- 
+<form action="/mostrarPedido" method="post">
+-->
+    <table class="table table-striped">
+        <th>folio del producto </th>
+        <th>nombre del producto</th>
+        <th>descripción</th>
+        <th>precio</th>
+        <th>cantidad pedida</th>
+        <th>cantidad enviada</th>
+        <th>cantidad aceptada</th>
+        <th>cantidad rechazada</th>
+        <th>eliminar</th>
+        <th>actualizar</th>
+        
+        {%for producto in pedido %}
+        <tr>
+            <td>{{prod.producto.id_prod}}</td>
+            <td>{{prod.producto.nombre}}</td>
+            <td>{{prod.producto.descripcion}}</td>
+            <td>{{prod.precio}}</td>
+            <td>{{prod.cantidad}}</td>
+            <td><a href='#' onclick="eliminarPedido({{pedido.idPedido}})">eliminar</a></td>
+            <td><a href="/detallePedido/{{pedido.idPedido}}"> detalle</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!--
+    {% if cesta %}
+    <input class="btn btn-primary mb-3" class="btn" class="btn btn-default" type="submit" value="consultar Pedido">
+    {% endif %}
+
+</form>
+-->
+<ul>
+    <li><a href="/productos"> regresar al menu de productos</a></li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block titulo %}
+ menu productos de My Bussiness
+{%endblock%}
+{% block main %}
+   <h1>
+       productos registrados en mi tiendita   
+</h1>
+
+ <table  class="table table-striped">
+     <th>folio del producto </th>
+     <th>nombre del producto</th>
+     <th>descripciom</th>
+     <th>precio</th>
+      {% if current_user.is_authenticated and current_user.is_admin() %}
+     <th>eliminar</th>
+     {% endif %}
+     <th>actualizar</th>
+     <th>agregar al carrito</th>
+      {%for producto in productos  %}
+      <tr>
+         <td>{{producto.id_producto}}</td>
+         <td>{{producto.nombre}}</td>
+         <td>{{producto.descripcion}}</td>
+         <td>{{producto.precio}}</td>
+          {% if current_user.is_authenticated and current_user.is_admin() %}
+         <td> <a href='#' onclick="eliminarProducto({{producto.id_producto}})">eliminar </a></td>
+          {% endif %}
+         <td><a href="/actualizarProducto/{{producto.id_producto}}"> actualizar</a></td>
+         <td><a href="/agregarCarrito/{{producto.id_producto}}"> agregar al carrito</a></td>
+      </tr>
+     {% endfor %}
+ </table>
+<ul>
+    {% if current_user.is_authenticated and current_user.is_admin() %}
+    <li><a href="/agregarProducto"> registrar otro producto</a></li>
+    {% endif %}
+    <li><a href="/menu"> regresar al menu de principal</a></li>
+</ul>
+{% endblock %}

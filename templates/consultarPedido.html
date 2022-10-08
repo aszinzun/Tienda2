@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+Consultar Carrito
+{% endblock %}
+
+{% block main %}
+
+<h1> confirmar forma de pago </h1>
+<form action="/guardarPedido" method="post">
+    {%for i in ids %}
+    <input type="hidden" name="ids" value="{{i}}">
+    {% endfor %}
+    <label for="idTarjeta">elige la tarjeta para el pago</label>
+    <select id="idTarjeta" name="idTarjeta" class="form-control">
+        {%for t in tarjetas %}
+        <option value="{{t.idTarjeta}}">{{t.idTarjeta}} con {{t.saldo}} en {{t.banco}}</option>
+        {% endfor %}
+    </select><br>
+    total a pagar
+    <input type="text" name="total" value="{{total}}" readonly class="form-control"><br>
+    {% if total>0 %}
+    <input type="submit" value="guardar pedido" class="btn btn-primary mb-3" class="btn" class="btn btn-default">
+    {% endif %}
+</form>
+<ul>
+    <li><a href="/productos"> regresar al menu de productos</a></li>
+</ul>
+{% endblock %}

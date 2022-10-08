@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block titulo %}
+datos del cliente nuevo
+{% endblock %}
+{% block main %}
+    <h1>Registrando cliente nuevo</h1>
+    <form action="/guardarcliente" method="post">
+        <label for="id_cliente">folio del cliente</label>
+        <input type="text" id="id_cliente" name="id_cliente" class="form-control">
+        <label for="nombre">Nombre del cliente</label>
+        <input type="text" id="nombre" name="nombre" class="form-control">
+        <label for="saldo">saldo del cliente</label>
+        <input type="text" id="saldo" name="saldo" class="form-control">
+        <input type="submit" class="btn btn-primary mb-3" class="btn"  class="btn btn-default" value="registrar cliente" class="btn btn-default">
+    </form>
+    <a href="/clientes"> cancelar  registro de cliente</a>
+{% endblock %}

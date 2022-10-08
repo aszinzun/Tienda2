@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block titulo %}
+datos del producto nuevo
+{% endblock %}
+{% block main %}
+        <h1>Registrando producto nuevo</h1>
+    
+    <form action="/guardarproducto" method="post">
+        <h5>datos del producto nuevo </h5>
+        <div class="form-group">
+            <label for="id_producto">folio del producto</label>
+         <input type="text" id="id_producto" name="id_producto" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre del producto</label>
+            <input type="text" id="nombre" name="nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="descripcion">descripcion del producto</label>
+            <input type="text" id="descripcion" name="descripcion" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="precio">precio del producto</label>
+            <input type="number" id="precio" name="precio" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="registrar producto" class="btn btn-primary mb-3" class="btn btn-default">
+        </div>
+    </form>
+    <a href="/productos"> cancelar  registro de producto</a>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+Consultar Pedidos
+{% endblock %}
+
+{% block main %}
+<h1> seguimiento de pedidos</h1>
+<!-- 
+<form action="/mostrarPedido" method="post">
+-->
+    <table class="table table-striped">
+        <th>folio del pedido </th>
+        <th>folio de la tarjeta</th>
+        <th>fecha de  registro</th>
+        <th>fecha de atencion</th>
+        <th>fecha de recepcion</th>
+        <th>fecha de cierre</th>
+        <th>total</th>
+        <th>estatus</th>
+        {%for pedido in pedidos %}
+        <tr>
+            <td>{{pedido.idPedido}}</td>
+            <td>{{pedido.idTarjeta}}</td>
+            <td>{{pedido.fechaRegistro}}</td>
+            <td>{{pedido.fechaAtencion}}</td>
+            <td>{{pedido.fechaRecepcion}}</td>
+            <td>{{pedido.fechaCierre}}</td>
+            <td>{{pedido.total}}</td>
+            <td>{{pedido.estatus}}</td>
+            <td><a href='#' onclick="eliminarPedido({{pedido.idPedido}})">eliminar</a></td>
+            <td><a href="/detallePedido/{{pedido.idPedido}}"> detalle</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!--
+    {% if cesta %}
+    <input class="btn btn-primary mb-3" class="btn" class="btn btn-default" type="submit" value="consultar Pedido">
+    {% endif %}
+
+</form>
+-->
+<ul>
+    <li><a href="/productos"> regresar al menu de productos</a></li>
+</ul>
+
+{% endblock %}
